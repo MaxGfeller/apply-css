@@ -10,6 +10,8 @@ module.exports = function(scope, style) {
 
   var o = css.parse(style)
   o.stylesheet.rules.forEach(function(rule, i) {
+    if (o.stylesheet.rules[i].type !== 'rule') return
+
     var s = o.stylesheet.rules[i].selectors[0]
     var globalAttr = false
     if (globals.indexOf(s) > -1) globalAttr = true
