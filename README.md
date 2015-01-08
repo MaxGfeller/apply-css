@@ -5,6 +5,8 @@ Scoped CSS was a planned web platform feature in multiple browsers but was later
 
 With `apply-css` this is possible in the browser using [browserify](http://browserify.org).
 
+There is a demo project using bootstrap + a theme [here](https://github.com/MaxGfeller/apply-css-demo). Or see it directly live [here](http://www.maxgfeller.com/projects/apply-css-demo).
+
 ## Usage
 
 ### `apply(element, css)`
