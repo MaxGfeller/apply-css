@@ -12,13 +12,16 @@ module.exports = function(scope, style) {
   o.stylesheet.rules.forEach(function(rule, i) {
     if (o.stylesheet.rules[i].type !== 'rule') return
 
-    var s = o.stylesheet.rules[i].selectors[0]
+    var selectors = o.stylesheet.rules[i].selectors
     var globalAttr = false
-    if (globals.indexOf(s) > -1) globalAttr = true
-    var selector = globalAttr ?
+
+    selectors.forEach(function(s,idx){
+      if (globals.indexOf(s) > -1) globalAttr = true
+      var selector = globalAttr ?
       s + ' [data-scoped-css="' + id + '"]'
-      : '[data-scoped-css="' + id + '"] ' + s
-    o.stylesheet.rules[i].selectors[0] = selector
+          : '[data-scoped-css="' + id + '"] ' + s
+      o.stylesheet.rules[i].selectors[idx] = selector
+    })
   })
 
   insert(css.stringify(o))
