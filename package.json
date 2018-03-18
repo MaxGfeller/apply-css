@@ -1,6 +1,6 @@
 {
   "name": "apply-css",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Apply css only to a specific part of the document",
   "main": "index.js",
   "scripts": {
