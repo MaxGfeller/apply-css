@@ -1,5 +1,7 @@
 # apply-css
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 Scoped CSS was a planned web platform feature in multiple browsers but was later
 [retracted due to high code complexity](https://www.chromestatus.com/features/5374137958662144).
 
