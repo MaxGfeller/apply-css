@@ -4,7 +4,7 @@
   "description": "Apply css only to a specific part of the document",
   "main": "index.js",
   "scripts": {
-    "test": "browserify -t brfs tests/test-*.js|testling"
+    "test": "browserify -t brfs tests/test-*.js|tape-run"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "brfs": "^1.2.0",
     "browserify": "^7.0.0",
     "tape": "^3.0.3",
-    "testling": "^1.7.1"
+    "tape-run": "^3.0.4"
   },
   "dependencies": {
     "css": "^2.1.0",
