@@ -8,6 +8,12 @@ module.exports = function (scope, style) {
   var id = cuid.slug()
   scope.setAttribute('data-scoped-css', id)
 
+  var styleStr = parseCSS(id, style)
+
+  insert(styleStr)
+}
+
+function parseCSS (identifier, style) {
   var o = css.parse(style)
   o.stylesheet.rules.forEach(function (rule, i) {
     if (o.stylesheet.rules[i].type !== 'rule') return
@@ -18,11 +24,13 @@ module.exports = function (scope, style) {
     selectors.forEach(function (s, idx) {
       if (globals.indexOf(s) > -1) globalAttr = true
       var selector = globalAttr
-        ? s + ' [data-scoped-css="' + id + '"]'
-        : '[data-scoped-css="' + id + '"] ' + s
+        ? s + ' [data-scoped-css="' + identifier + '"]'
+        : '[data-scoped-css="' + identifier + '"] ' + s
       o.stylesheet.rules[i].selectors[idx] = selector
     })
   })
 
-  insert(css.stringify(o))
+  return css.stringify(o)
 }
+
+module.exports.parseCSS = parseCSS
